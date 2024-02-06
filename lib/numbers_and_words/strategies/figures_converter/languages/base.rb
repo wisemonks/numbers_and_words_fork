@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
         class Base
-          include Languages::Families::Base
+          include Families::Base
 
           attr_accessor :strategy, :figures, :translations, :strings, :options
 
-          def initialize strategy
+          def initialize(strategy)
             @strategy = strategy
             @figures = strategy.figures
             @translations = strategy.translations
@@ -16,11 +18,11 @@ module NumbersAndWords
 
           def words
             @strings = strings_logic
-            @strings.empty? && zero || print_words
+            (@strings.empty? && zero) || print_words
           end
 
           def print_words
-            @strings.reverse.join ' '
+            @strings.reverse.join(' ')
           end
         end
       end

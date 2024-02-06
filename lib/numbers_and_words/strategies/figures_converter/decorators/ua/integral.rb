@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
         module Ua
           class Integral < Base
-
             def run
               @options[:gender] = :female
               "#{super} #{integral_significance}"

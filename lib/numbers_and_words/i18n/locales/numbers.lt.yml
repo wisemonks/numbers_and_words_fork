@@ -1,11 +1,10 @@
 lt:
   numbers:
     ones: [nulis, vienas, du, trys, keturi, penki, šeši, septyni, aštuoni, devyni]
-    teens: [dešimt, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
-    tens: [nulis, dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]
-    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    teens: [vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
+    tens: [dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]
     hundreds: [šimtas, du šimtai, trys šimtai, keturi šimtai, penki šimtai, šeši šimtai, septyni šimtai, aštuoni šimtai, devyni šimtai]
-    one_hundred: šimtas
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tūkstantis
       ones: tūkstančiai

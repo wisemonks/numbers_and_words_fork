@@ -1,4 +1,5 @@
-# coding: utf-8
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'shared_examples/correct_fixture_examples'
 
@@ -6,7 +7,7 @@ require 'shared_examples/correct_fixture_examples'
   describe type do
     NumbersAndWords::I18n.languages.each do |locale|
       context locale do
-        around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
+        around { |example| I18n.with_locale(locale) { example.run } }
 
         it_behaves_like 'correct fixture examples', fixture_examples(type, locale)
       end
@@ -14,12 +15,12 @@ require 'shared_examples/correct_fixture_examples'
   end
 end
 
-
+FLOAT_CAPABLE_LANGUAGES = %i[cs en-GB en es fr hu pt-BR ru ua vi].freeze
 [Float].each do |type|
   describe type do
-    [:en, 'en-GB', 'pt-BR', :hu, :ru, :ua].each do |locale|
+    FLOAT_CAPABLE_LANGUAGES.each do |locale|
       context locale do
-        around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
+        around { |example| I18n.with_locale(locale) { example.run } }
 
         it_behaves_like 'correct fixture examples', fixture_examples(type, locale)
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Wrappers
     class Float
@@ -5,11 +7,11 @@ module NumbersAndWords
 
       attr_accessor :number
 
-      def initialize number
+      def initialize(number)
         @number = number
       end
 
-      def to_words options = {}
+      def to_words(options = {})
         @options = options
         words = []
         words << integral_part_with(options)
@@ -31,29 +33,29 @@ module NumbersAndWords
 
       def fractional_part
         part = parts.last
-        part += ZERO_SYMBOL*(precision - part.length) if precision
+        part += ZERO_SYMBOL * (precision - part.length) if precision
         part
       end
 
-      def integral_part_with options
+      def integral_part_with(options)
         integral_part.to_i.to_words options.merge(integral_options)
       end
 
-      def fractional_part_with options
+      def fractional_part_with(options)
         fractional_part.to_i.to_words options.merge(fractional_options)
       end
 
       def integral_options
-        {:integral => {}}
+        { integral: {} }
       end
 
       def fractional_options
         length = precision || fractional_part.length
-        {:fractional => {:length => length}}
+        { fractional: { length: length } }
       end
 
       def fractional_part_is_nil?
-        0 == fractional_part.to_i
+        fractional_part.to_i.zero?
       end
 
       def precision

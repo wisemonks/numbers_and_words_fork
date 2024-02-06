@@ -8,30 +8,47 @@ to_words:
     11: elf
     19: negentien
     20: twintig
-    21: éénentwintig
+    21: eenentwintig
+    22: tweeëntwintig
+    23: drieëntwintig
+    24: vierentwintig
     80: tachtig
     90: negentig
     99: negenennegentig
   hundreds:
     100: honderd
-    101: honderdéén
+    101: honderdeen
     111: honderdelf
     120: honderdtwintig
-    121: honderdéénentwintig
+    121: honderdeenentwintig
     900: negenhonderd
     909: negenhonderdnegen
     919: negenhonderdnegentien
     990: negenhonderdnegentig
     999: negenhonderdnegenennegentig
   thousands:
-    1000: éénduizend
+    1000: duizend
+    1001: duizend één
+    1984: duizend negenhonderdvierentachtig
     2000: tweeduizend
     4000: vierduizend
     5000: vijfduizend
     11000: elfduizend
-    21000: éénentwintigduizend
+    21000: eenentwintigduizend
     999000: negenhonderdnegenennegentigduizend
     999999: negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
+  tens_of_hundreds:
+    options:
+      :tens_of_hundreds: true
+    0: nul
+    100: honderd
+    1000: duizend
+    1001: duizend één
+    1984: negentienhonderdvierentachtig
+    2000: tweeduizend
+    2193: eenentwintighonderddrieënnegentig
+    9999: negenennegentighonderdnegenennegentig
+    11984: elfduizend negenhonderdvierentachtig
   millions:
     1000000: één miljoen
     2000000: twee miljoen
@@ -39,6 +56,7 @@ to_words:
     5000000: vijf miljoen
     999000000: negenhonderdnegenennegentig miljoen
     999000999: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentig
+    999001000: negenhonderdnegenennegentig miljoen duizend
     999999000: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend
     999999999: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
   billions:

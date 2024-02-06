@@ -1,26 +1,36 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module I18n
     module Plurals
       module Ru
-        RULE = lambda do |n|
-           one_conditions(n) ?
-            :one : few_conditions(n) ?
-              :few : many_conditions(n) ?
-                :many : :other
+        module_function
+
+        RULE = lambda do |number|
+          if one_conditions(number)
+            :one
+          elsif few_conditions(number)
+            :few
+          elsif many_conditions(number)
+            :many
+          else
+            :other
+          end
         end
 
-        extend self
-
-        def one_conditions n
-          n % 10 == 1 && n % 100 != 11
+        def one_conditions(number)
+          number % 10 == 1 && number % 100 != 11
         end
 
-        def few_conditions n
-          [2, 3, 4].include?(n % 10) && ![12, 13, 14].include?(n % 100)
+        def few_conditions(number)
+          [2, 3, 4].include?(number % 10) &&
+            ![12, 13, 14].include?(number % 100)
         end
 
-        def many_conditions n
-          n % 10 == 0 || [5, 6, 7, 8, 9].include?(n % 10) || [11, 12, 13, 14].include?(n % 100)
+        def many_conditions(number)
+          (number % 10).zero? ||
+            [5, 6, 7, 8, 9].include?(number % 10) ||
+            [11, 12, 13, 14].include?(number % 100)
         end
       end
     end

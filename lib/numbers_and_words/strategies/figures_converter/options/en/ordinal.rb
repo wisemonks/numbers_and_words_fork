@@ -1,28 +1,21 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Options
         module En
-          class Ordinal
+          class Ordinal < Base::Ordinal
             ZERO_TYPE = :zero
             HUNDRED_TYPE = :hundreds
             MEGS_TYPE = :megs
 
-            def initialize proxy, *args, &block
-              @strategy = proxy.strategy
-              @options = proxy.options
-            end
-
-            def result type
+            def result(type)
               @type = type
-              MEGS_TYPE != type ? check_simple_numbers : check_megs_numbers
+              type == MEGS_TYPE ? check_megs_numbers : check_simple_numbers
             end
 
             private
-
-            def active?
-              @options[:ordinal]
-            end
 
             def check_simple_numbers
               :ordinal if simple_numbers_condition && active?
@@ -34,7 +27,8 @@ module NumbersAndWords
 
             def simple_numbers_condition
               current_capacity.nil? &&
-                (HUNDRED_TYPE != @type || (HUNDRED_TYPE == @type && simple_number_to_words.empty?))
+                (@type != HUNDRED_TYPE ||
+                 (@type == HUNDRED_TYPE && simple_number_to_words.empty?))
             end
 
             def megs_numbers_condition

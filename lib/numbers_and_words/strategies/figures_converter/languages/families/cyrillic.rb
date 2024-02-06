@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
@@ -19,14 +21,14 @@ module NumbersAndWords
               end
             end
 
-            [:ones, :tens_with_ones].each do |method_name|
-              define_method(method_name) {
-                super({:gender => gender})
-              }
+            %i[ones tens_with_ones].each do |method_name|
+              define_method(method_name) do |*args|
+                super({ gender: gender }.merge(args.first || {}))
+              end
             end
 
-            def megs
-              super({:number => @figures.number_in_capacity(@current_capacity)})
+            def megs(*args)
+              super({ number: @figures.number_in_capacity(@current_capacity) }.merge(args.first || {}))
             end
           end
         end

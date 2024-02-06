@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
         class Base
-          def initialize strategy, options
+          def initialize(strategy, options)
             @strategy = strategy
             @options = options
           end

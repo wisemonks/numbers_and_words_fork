@@ -1,7 +1,88 @@
-## 0.10.7 (Next)
+## 0.11.13 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.12 (April 22, 2023)
+
+### Features
+  * Add support for Ruby 3.1. \[[#187](https://github.com/kslazarev/numbers_and_words/pull/187)\]
+  * Drop support for Ruby 2.5. \[[#180](https://github.com/kslazarev/numbers_and_words/pull/180)\]
+  * Drop support for Ruby 2.6. \[[#190](https://github.com/kslazarev/numbers_and_words/pull/190)\]
+  * Add support for Ruby 3.2. \[[#193](https://github.com/kslazarev/numbers_and_words/pull/193)\]
+
+### Bugs
+  * Properly handle Dutch year numbers. \[[#183](https://github.com/kslazarev/numbers_and_words/pull/183)\] \([@mvz](https://github.com/mvz)\)
+  * Remove pluralization rules for French. \[[#195](https://github.com/kslazarev/numbers_and_words/pull/195)\]
+
+## 0.11.11 (July 5, 2021)
+
+### Bugs
+  * Fix edge cases in Dutch. \[[#182](https://github.com/kslazarev/numbers_and_words/pull/182)\] \([@mvz](https://github.com/mvz)\)
+
+## 0.11.10 (January 5, 2021)
+
+### Bugs
+  * Avoid adding all array extensions to the standard Array class. \[[#179](https://github.com/kslazarev/numbers_and_words/pull/179)\]
+
+## 0.11.9 (January 4, 2021)
+
+### Features
+  * Add support for Ruby 3.0. \[[#178](https://github.com/kslazarev/numbers_and_words/pull/178)\]
+
+## 0.11.8 (June 6, 2020)
+
+### Features
+  * Add support for Kazakh language. \[[#175](https://github.com/kslazarev/numbers_and_words/pull/175)\] \([@j8sus](https://github.com/j8sus)\)
+
+## 0.11.7 (June 1, 2020)
+
+### Features
+  * Add support for Ruby 2.7. \[[#172](https://github.com/kslazarev/numbers_and_words/pull/172)\]
+  * Drop support for Ruby 2.4.
+
+## 0.11.6 (April 14, 2019)
+
+### Bugs
+  * Fix wrong spelling in Spanish with precision. \[[#165](https://github.com/kslazarev/numbers_and_words/pull/165)\]
+
+### Features
+  * Add support for Ruby 2.6. \[[#161](https://github.com/kslazarev/numbers_and_words/pull/161)\]
+  * Drop support for Ruby 2.2.
+  * Drop support for Ruby 2.3.
+
+## 0.11.5 (March 22, 2018)
+
+### Bugs
+  * Fix Armenian megs capacity words. \[[#156](https://github.com/kslazarev/numbers_and_words/pull/156)\]
+
+## 0.11.4 (March 20, 2018)
+
+### Features
+  * Add support for Armenian language. \[[#155](https://github.com/kslazarev/numbers_and_words/pull/155)\]
+  * Improve CI.
+  * Improve code readability.
+
+## 0.11.3 (December 3, 2017)
+
+### Features
+  * Add support for Vietnamese language. \[[#152](https://github.com/kslazarev/numbers_and_words/pull/152)\]
+
+## 0.11.2 (August 14, 2017)
+
+### Features
+  * Add full support for Czech language. \[[#148](https://github.com/kslazarev/numbers_and_words/pull/148)\]
+
+## 0.11.1 (July 23, 2017)
+
+### Features
+  * Add support for Spanish floating-point numbers. \[[#146](https://github.com/kslazarev/numbers_and_words/pull/146)\]
+  * Add support for French floating-point numbers. \[[#144](https://github.com/kslazarev/numbers_and_words/pull/144)\]
+
+## 0.11.0 (June 26, 2017)
+
+### Features
+  * Remove dependency on `ActiveSupport` gem. \[[#141](https://github.com/kslazarev/numbers_and_words/pull/141)\]
 
 ## 0.10.6 (June 11, 2017)
 

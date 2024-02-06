@@ -1,14 +1,19 @@
-source 'http://rubygems.org'
+# frozen_string_literal: true
 
-gem 'i18n'
-gem 'activesupport'
+source 'https://rubygems.org'
+
+gem 'i18n', '<= 2'
 
 group :development do
-  gem 'rake'
-  gem 'jeweler'
+  gem 'jeweler', '~> 2'
+  gem 'rake', '~> 12'
 end
 
 group :test do
-  gem 'rspec', '~> 3.0'
-  gem 'coveralls', :require => false
+  gem 'coveralls', require: false
+  gem 'rspec', '~> 3'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rake', require: false
+  gem 'rubocop-rspec', require: false
 end

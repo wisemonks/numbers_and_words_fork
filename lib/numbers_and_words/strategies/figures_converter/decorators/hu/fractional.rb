@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
         module Hu
           class Fractional < Base
-
             def run
               "#{super} #{fraction_significance}"
             end
@@ -12,11 +13,11 @@ module NumbersAndWords
             private
 
             def fraction_significance
-              @strategy.translations.micros full_fraction.fraction_capacity, figures.reverse.join.to_i
+              @strategy.translations.micros full_fraction.fraction_capacity
             end
 
             def full_fraction
-              (0..zero_length).inject(figures.clone) { |result, el| result.unshift '0' }.to_figures
+              (0..zero_length).inject(figures.clone) { |result, _el| result.unshift '0' }.to_figures
             end
 
             def figures

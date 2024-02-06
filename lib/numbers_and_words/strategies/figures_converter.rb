@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'numbers_and_words/strategies/figures_converter/languages'
 require 'numbers_and_words/strategies/figures_converter/options'
 require 'numbers_and_words/strategies/figures_converter/decorators'
@@ -6,10 +8,9 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       class Base
-
         attr_accessor :options, :figures, :translations, :language, :decorator
 
-        def initialize figures, options = {}
+        def initialize(figures, options = {})
           @figures = figures.reverse
 
           @decorator = Decorators.factory(self, options)
@@ -24,8 +25,8 @@ module NumbersAndWords
 
         private
 
-        def around
-          decorator.run { yield }
+        def around(&block)
+          decorator.run(&block)
         end
       end
     end

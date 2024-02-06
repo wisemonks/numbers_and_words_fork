@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
@@ -6,37 +8,30 @@ module NumbersAndWords
           class Pronounced
             attr_accessor :strategy, :options
 
-            def initialize proxy, *args, &block
+            def initialize(proxy, *_args)
               @strategy = proxy.strategy
               @options = proxy.options
-            end
-
-
-            def result
-              active? ? 'PRONOUNCED' : 'NOTPRONOUNCED'
             end
 
             def active?
               @options[:pronounced]
             end
 
-            def process language, figures
-              if figures.to_a.count > 4
-                language.number_without_capacity_to_words + language.complex_number_to_words
-              elsif figures.capacity_count
+            def process(language, figures)
+              if figures.capacity_count
                 handle_thousands language, figures
               elsif figures.hundreds
                 handle_hundreds language, figures
-              elsif figures.tens or figures.ones
+              elsif figures.tens || figures.ones
                 language.simple_number_to_words
               else
                 []
               end
             end
 
-            def handle_thousands language, figures
-              units, tens, hundreds, thousands = *figures.to_a.dup
-              if hundreds == 0
+            def handle_thousands(language, figures)
+              _units, _tens, hundreds, thousands = *figures.to_a.dup
+              if hundreds.zero?
                 language.number_without_capacity_to_words + language.complex_number_to_words
               else
                 result = tens_with_oh language, figures
@@ -44,29 +39,18 @@ module NumbersAndWords
               end
             end
 
-            def handle_hundreds language, figures
-              units, tens, hundreds = *figures.to_a.dup
+            def handle_hundreds(language, figures)
+              _units, _tens, hundreds = *figures.to_a.dup
               result = tens_with_oh language, figures
               result.push hundreds.to_words
             end
 
-            def tens_with_oh language, figures
+            def tens_with_oh(language, figures)
               units, tens = *figures.to_a.dup
-              result = []
-              if tens == 0
-                if units == 0
-                  result.push 'hundred'
-                else
-                  result.push language.ones
-                  result.push 'oh'
-                end
-              else
-                if figures.teens
-                  result.push language.teens
-                elsif figures.tens
-                  result.push language.complex_tens
-                end
-              end
+              return (units.zero? ? ['hundred'] : [language.ones, 'oh']) if tens.zero?
+              return [language.teens] if figures.teens
+
+              [language.complex_tens]
             end
           end
         end

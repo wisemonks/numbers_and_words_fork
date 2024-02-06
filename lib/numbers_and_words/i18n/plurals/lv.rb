@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module I18n
     module Plurals
       module Lv
-        RULE = lambda { |n| one_conditions(n) ? :one : :other }
+        module_function
 
-        extend self
+        RULE = ->(number) { one_conditions(number) ? :one : :other }
 
-        def one_conditions n
-          n % 10 == 1 && n % 100 != 11
+        def one_conditions(number)
+          number % 10 == 1 && number % 100 != 11
         end
       end
     end
